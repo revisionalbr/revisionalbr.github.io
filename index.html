@@ -33,7 +33,7 @@
   /* HEADER */
   header {
     background: var(--azul);
-    padding: 1.2rem 2rem;
+    padding: 0.85rem 2rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -51,7 +51,7 @@
   .hero {
     background: var(--azul);
     color: var(--branco);
-    padding: 5rem 2rem 4rem;
+    padding: 0.4rem 2rem 3.5rem;
     text-align: center;
     position: relative;
     overflow: hidden;
@@ -84,7 +84,7 @@
     letter-spacing: 0.2em;
     text-transform: uppercase;
     color: var(--offwhite);
-    margin-bottom: 1.5rem;
+    margin-bottom: 0.5rem;
     opacity: 0.8;
   }
 
@@ -93,7 +93,7 @@
     font-weight: 300;
     font-size: clamp(2.4rem, 6vw, 4rem);
     line-height: 1.15;
-    margin-bottom: 1.5rem;
+    margin-bottom: 0.5rem;
     color: var(--branco);
   }
 
@@ -454,7 +454,7 @@
 
   /* RESPONSIVE */
   @media (max-width: 600px) {
-    .hero { padding: 4rem 1.5rem 3rem; }
+    .hero { padding: 0.15rem 1.5rem 2.5rem; }
     section { padding: 4rem 1.5rem; }
     .video-section { padding: 4rem 1.5rem; }
     .cta-final { padding: 4rem 1.5rem; }
@@ -470,14 +470,16 @@
 
 <!-- HERO -->
 <section class="hero">
-  <div class="video-wrapper" id="video-container" style="margin-bottom:2.5rem;">
+  <p class="hero-eyebrow">Advocacia Especializada em Direito Bancário</p>
+  <h1>Seu empréstimo está<br>pesando demais?</h1>
+  <p class="hero-eyebrow" style="margin-bottom:0.45rem;">Assista o vídeo abaixo</p>
+  <div class="video-wrapper" id="video-container" style="margin:0 auto 0.9rem;">
     <video id="bs-video" controls muted playsinline preload="metadata">
       <source src="video.mp4" type="video/mp4">
       Seu navegador não suporta a reprodução de vídeo.
     </video>
   </div>
-  <p class="hero-eyebrow">Advocacia Especializada em Direito Bancário</p>
-  <h1>Seu empréstimo está<br>pesando demais?<br><em>Você tem direitos.</em></h1>
+  <p style="font-family:'Cormorant Garamond',serif;font-weight:300;font-style:italic;font-size:clamp(2.4rem,6vw,4rem);line-height:1.15;color:var(--offwhite);margin-bottom:1rem;">Você tem direitos.</p>
   <p class="hero-sub">Revisamos contratos de empréstimo com bancos e podemos reduzir significativamente suas parcelas mensais.</p>
   <a class="btn-hero" href="https://wa.me/5551996363789?text=Ol%C3%A1%2C%20gostaria%20de%20saber%20se%20posso%20reduzir%20as%20parcelas%20do%20meu%20empr%C3%A9stimo." target="_blank" rel="noopener">
     Quero analisar meu contrato
