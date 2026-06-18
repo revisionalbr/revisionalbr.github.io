@@ -660,6 +660,40 @@ src="https://www.facebook.com/tr?id=6922377604530359&ev=PageView&noscript=1"
       if (typeof fbq === 'function') fbq('trackCustom', m[1]);
     }, m[0] * 1000);
   });
+
+  // Meta Pixel: engajamento com o vídeo (VSL)
+  (function () {
+    var v = document.getElementById('bs-video');
+    if (!v) return;
+    function fire(name) { if (typeof fbq === 'function') fbq('trackCustom', name); }
+    var played = false, unmuted = false, marks = { 25: false, 50: false, 75: false, 95: false };
+    v.addEventListener('play', function () { if (!played) { played = true; fire('Video_Play'); } });
+    v.addEventListener('volumechange', function () { if (!unmuted && !v.muted) { unmuted = true; fire('Video_Som_Ativado'); } });
+    v.addEventListener('timeupdate', function () {
+      if (!v.duration) return;
+      var p = v.currentTime / v.duration * 100;
+      [25, 50, 75, 95].forEach(function (m) {
+        if (!marks[m] && p >= m) { marks[m] = true; fire(m === 95 ? 'Video_Concluido' : 'Video_' + m); }
+      });
+    });
+  })();
+
+  // Meta Pixel: profundidade de rolagem
+  (function () {
+    var hit = { 25: false, 50: false, 75: false, 100: false };
+    function check() {
+      var d = document.documentElement;
+      var scrolled = d.scrollTop || document.body.scrollTop;
+      var height = d.scrollHeight - d.clientHeight;
+      if (height <= 0) return;
+      var p = scrolled / height * 100;
+      [25, 50, 75, 100].forEach(function (m) {
+        if (!hit[m] && p >= m) { hit[m] = true; if (typeof fbq === 'function') fbq('trackCustom', 'Scroll_' + m); }
+      });
+    }
+    window.addEventListener('scroll', check, { passive: true });
+    check();
+  })();
 </script>
 
 </body>
